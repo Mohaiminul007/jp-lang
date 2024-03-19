@@ -1,8 +1,18 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
-First, run the development server:
+First, clone the project:
+ ```bash
+cd jp-lang
+```
+
+Second:
+ ```bash
+npm install
+```
+Then, you need to make the .env file and put the Hygraph Master URL.
+
+Then, run the development server
 
 ```bash
 npm run dev
