@@ -8,7 +8,7 @@ function Card() {
   const getjpDatafunc = async() =>{
     
     const jpData =  await getJpLetters();
-    // console.log("this :",jpData.jpLetterHiraganas)
+    console.log("this :",jpData.jpLetterHiraganas)
     const jpLettersAllData = await jpData.jpLetterHiraganas;
     setJpLettersAll(jpLettersAllData)
   }
@@ -18,7 +18,7 @@ function Card() {
   }, [])
   
 
-  // console.log('=>>>>>>>>>>>>>',jpLettersAll);
+  console.log('=>>>>>>>>>>>>>',jpLettersAll);
 
 // const sum(a,b){
 //   return a+b
@@ -27,10 +27,10 @@ function Card() {
 
 
   return (
-    <div className=''>
-        <h2 className="text-5xl  mb-3 text-center">Hiragana</h2>
-        <hr className="border-2 border-gray-400"/>
-        <div className='mt-5'>
+    <div className='text-white bg-gray-900'>
+        <div>
+        <h2 className="text-5xl mb-3 text-center">Hidragana</h2>
+        <hr className="border-2 border-blue-400"/>
         {
           jpLettersAll && jpLettersAll.map((item,index) => (
             <div className='mt-5'>
@@ -43,7 +43,7 @@ function Card() {
                 <img className=" rounded-3xl 
                 ring-4 
                 ring-cyan-400" 
-                src={item.imageHiragana.url}
+                src={item.imageHiragana}
                 alt="img-name" 
                 key={item.imageHiragana.id}
                 width="60%"/>
