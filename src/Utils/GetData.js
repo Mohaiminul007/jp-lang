@@ -4,7 +4,7 @@ import request, { gql } from "graphql-request";
 export const getJpLetters =async()=>{
     const getJpLettersQuery = gql`
     query Assets {
-      jpLetterHiraganas {
+      jpLetterHiraganas(first:100) {
         serialNo
         jpSingleLetterHiragana
         englishPronounciationHiragana
