@@ -1,7 +1,7 @@
 import Image from "next/image";
-import Card from "../components/Card";
+import Card from "../Components/Card";
 import Link from "next/link";
-import Nav from "@/components/Nav";
+import Nav from "@/Components/Nav";
 
 export default function Home() {
   return (
