@@ -5,6 +5,7 @@ export const getJpLetters =async()=>{
     const getJpLettersQuery = gql`
     query Assets {
       jpLetterHiraganas {
+        serialNo
         jpSingleLetterHiragana
         englishPronounciationHiragana
         imageHiragana {
@@ -18,8 +19,7 @@ export const getJpLetters =async()=>{
         }
       }
     }
-    
-      
+          
     `
     const result = await request(process.env.NEXT_PUBLIC_MASTER_ENV, getJpLettersQuery)
     return result;
