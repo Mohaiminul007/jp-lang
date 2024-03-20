@@ -33,6 +33,7 @@ function Card() {
         <h2 className="text-5xl mb-3 text-center">Hiragana</h2>
         <hr className="border-2 border-blue-400" />
         {
+
           jpLettersAll && jpLettersAll.map((item, index) => (
             <div>
               <div className=" flex flex-col items-center 
@@ -55,10 +56,12 @@ function Card() {
 
                 <div className=' flex justify-center items-center  border-cyan-300 rounded-md w-full h-full mb-5 md:m-0'>
                   <Drawing />
+
                 </div>
 
                 {/* <div className=' flex justify-center items-center border-1 border-cyan-300 rounded-md w-full h-full'>
                 hi
+
               </div> */}
 
 
@@ -70,6 +73,7 @@ function Card() {
                   <audio controls controlsList="nodownload noplaybackrate" className='h-7 w-[200px] mt-5'>
                     <source src={item.audioHiragana.url}
                       key={item.audioHiragana.id}
+
                     />
                   </audio>
                 </div>
