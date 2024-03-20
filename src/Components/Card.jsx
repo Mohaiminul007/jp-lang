@@ -20,6 +20,7 @@ function Card() {
 
   console.log('=>>>>>>>>>>>>>',jpLettersAll);
 
+
 // const sum(a,b){
 //   return a+b
 // }
@@ -41,9 +42,9 @@ function Card() {
             m-2 p-4 rounded-md pl-5 ">
                 <div className='flex items-center justify-center'>
                 <img className=" rounded-3xl 
-                ring-4 
+                ring-4 invert
                 ring-cyan-400" 
-                src={item.imageHiragana}
+                src={item.imageHiragana.url}
                 alt="img-name" 
                 key={item.imageHiragana.id}
                 width="60%"/>
@@ -56,11 +57,11 @@ function Card() {
           
                 
                   <div className="text-center 
-                  border-2 border-cyan-400
+                  
                   flex flex-col gap-y-4 items-center justify-center">
                     <h3 className="text-5xl font-semibold">
                         <span className="text-[10rem]">{item.jpSingleLetterHiragana}</span>{item.englishPronounciationHiragana}
-                    </h3>J
+                    </h3>
                     <audio controls className='border-2 border-cyan-200 rounded-full' 
                     controlsList="nodownload noplaybackrate" >
                     <source src={item.audioHiragana.url} 

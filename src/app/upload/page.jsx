@@ -1,5 +1,6 @@
 'use client'
-import React, { useState } from 'react'
+import { getJpLetters } from '@/Utils/GetData'
+import React, { useEffect, useState } from 'react'
 
 const Upload = () => {
 
@@ -27,6 +28,26 @@ const Upload = () => {
     console.log(formValue)
   }
   
+
+
+  ///getting data
+  const [jpLettersAll, setJpLettersAll] = useState()
+
+  const getjpDatafunc = async() =>{
+    
+    const jpData =  await getJpLetters();
+    console.log("this :",jpData.jpLetterHiraganas)
+    const jpLettersAllData = await jpData.jpLetterHiraganas;
+    setJpLettersAll(jpLettersAllData)
+  }
+  
+  useEffect(() => {
+    getjpDatafunc()
+  }, [])
+  
+
+  console.log('=>>>>>>>>>>>>>',jpLettersAll);
+
   
   return (
     <div >
@@ -88,8 +109,22 @@ const Upload = () => {
         </div>
       </form>
         </div>
+kjhjhh
+        <div>
+          
+          kkkkk
+          {jpLettersAll&&jpLettersAll.map((items) =>(
+            <div>
+             <ol>
+              <li>{items.jpSingleLetterHiragana}</li>
+            </ol>
+            </div>
+          ))}
+        </div>
     </div>
-  )
-}
-
+    
+    )
+  }
+  
+  
 export default Upload
