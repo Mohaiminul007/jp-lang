@@ -21,7 +21,7 @@ const Upload = () => {
     ...formValue,[event.target.name]:event.target.value
     
    }) 
-   console.log("=>>>>>>>>>", event.target.value)
+  //  console.log("=>>>>>>>>>", event.target.value)
   }
 
   const handleSubmit = () => {
@@ -46,7 +46,7 @@ const Upload = () => {
   }, [])
   
 
-  console.log('=>>>>>>>>>>>>>',jpLettersAll);
+  // console.log('=>>>>>>>>>>>>>',jpLettersAll);
 
   
   return (
