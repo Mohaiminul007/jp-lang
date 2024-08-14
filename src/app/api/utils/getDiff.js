@@ -2,7 +2,7 @@ import compareImages from "resemblejs/compareImages";
 import fs from "mz/fs";
 
 //get difference
- export default async function getDiff(idealImage:string, drawingImage:string) {
+ export default async function getDiff(idealImage, drawingImage) {
 
     const color = {
       r: 0,
@@ -11,7 +11,7 @@ import fs from "mz/fs";
       a: 255
   };
 
-    const options: any = {
+    const options = {
         output: {
           //yellow color for showing error
             errorColor: {

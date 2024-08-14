@@ -1,8 +1,8 @@
 import fs from "mz/fs";
 
-export default async function saveBase64Image(filePath:string,base64Image?:string, imageBuffer? : Buffer) {
+export default async function saveBase64Image(filePath,base64Image, imageBuffer) {
   // Split the base64 string into metadata and data
-  let buffer : Buffer;
+  let buffer;
   if(base64Image){
       const base64Data = base64Image.split(',')[1];
        buffer  = Buffer.from(base64Data, 'base64');

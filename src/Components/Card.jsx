@@ -23,7 +23,7 @@ function Card() {
   // console.log('=>>>>>>>>>>>>>', jpLettersAll);
 
 
-  //for now we'll just get data form local
+  // // for now we'll just get data form local
   // useEffect(() => {
    
   //   setJpLettersAll(dataFromLocal);

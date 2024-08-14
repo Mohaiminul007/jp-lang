@@ -12,8 +12,12 @@ const override = {
 };
 
 const AccuracyPage = ({ dataForAccuPage, onClose }) => {
+
+    const [data, setData] = useState()
+
+
     let [loading, setLoading] = useState(true);
-    let [color, setColor] = useState("#ffffff");
+    // let [color, setColor] = useState("#ffffff");
 
 
     const [accuracy, setAccuracy] = useState()
@@ -28,7 +32,11 @@ const AccuracyPage = ({ dataForAccuPage, onClose }) => {
             setLoading(true)
             setIdealImage(dataForAccuPage.idealInBase64)
             setDrawingImage(dataForAccuPage.drawingBase64)
-            setDiffImage(dataForAccuPage.diffData.diffImageInbase64)
+            // response.data.dataFromBackend.diffData.diffImageInBase64
+            // setDiffImage(dataForAccuPage.diffData.diffImageInbase64) //it's just B and b in base!!
+            setDiffImage(dataForAccuPage.diffData.diffImageInBase64)
+            // console.log("Data in accupage===> ",dataForAccuPage.diffData.diffImageInBase64);
+            
             setAccuracy(dataForAccuPage.diffData.diffWithoutBuffer.misMatchPercentage)
             // setIsModalOpen(true) // Open modal when new data is received
 
@@ -107,7 +115,7 @@ const AccuracyPage = ({ dataForAccuPage, onClose }) => {
                                     </div>
                                 </div>
                             </div>
-
+                            {/* {console.log("Diffimage===> ",diffImage,"\n Ideadimage==>",idealImage)} */}
                             <div className='grid grid-cols-1 md:grid-cols-2'>
                                 <div className="py-4 sm:px-12 md:px-12">
                                     <div className='mb-4'>

@@ -30,6 +30,9 @@ const Drawing = ({ item, key }) => {
 
   const canvasRef = useRef(null);
 
+
+
+
   const [initialBlankCanvas, setInitialBlankCanvas] = useState(null);
 
   const [strokeColor, setStrokeColor] = useState("#375fd9");
@@ -86,6 +89,7 @@ const Drawing = ({ item, key }) => {
         return 
       }
  //for my modal
+      // setdataForAccuPage(null)
       setIsModalOpen(true)
       
 
@@ -106,21 +110,35 @@ const Drawing = ({ item, key }) => {
 
       // console.log(item);
 
+      // //test api
+      // try {
+      //   const response = await axios.get('/api/hello');
+      //   console.log("success on GET got it",response.data);
+        
+      // } catch (error) {
+      //   console.log("error on GET request");
+        
+      // }
+
       // sending to backend
       try {
-        const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/analyze`, { data: dataToBackend }, {
+        // const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/analyze`, { data: dataToBackend }, {
+        const response = await axios.post(`/api/analyze`, { data: dataToBackend }, {
           headers: {
             'Content-Type': 'application/json'
           },
         })
 
-        // console.log("response ==>>> ",response.data); //no matter what we name the variable in the back it's always response.data
+        
+        // console.log("response ==>>> ",response.data.dataFromBackend.diffData.diffImageInBase64); 
+        //no matter what we name the variable in the back it's always response.data
         // console.log("response ==>>> ", response.data.dataFromBackend);
-
+        // console.log(response.data.dataFromBackend.diffData.diffImageInbase64)
+        // console.log("this diff image",diffImage);
+        
         setdataForAccuPage(response.data.dataFromBackend)
         
-//open popup
-      // document.getElementById('my_modal_4').showModal()
+
 
      
 
@@ -169,6 +187,8 @@ const Drawing = ({ item, key }) => {
 
   return (
     <div className='mt-0'>
+
+
       <Toaster position="top-center" reverseOrder={false} />
       <div className="flex gap-x-1 md:gap-x-2 items-center justify-center ">
         {/* <p className='pr-2'>Draw here: </p> */}

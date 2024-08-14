@@ -1,10 +1,11 @@
 import { fs } from "mz";
-import { IdealImagePath } from "../server";
+import { IdealImagePath } from "../analyze/route";
+
 var gifFrames = require('gif-frames');
 
 
 // Function to extract the last frame from a GIF and save it
-export  const  extractLastFrameFromGif = async (inputPath: string) => {
+export  const  extractLastFrameFromGif = async (inputPath) => {
     const framesFromGif = await gifFrames({
       url: inputPath, frames: 'all', outputType: 'png'
     });
@@ -19,7 +20,7 @@ export  const  extractLastFrameFromGif = async (inputPath: string) => {
           // console.log("Last frame saved successfully.");
           resolve(true);
         })
-        .on('error', (err : any) => {
+        .on('error', (err) => {
           console.error("Error saving last frame:", err);
           reject(err);
         });
