@@ -1,10 +1,10 @@
 "use client"
-import { getJpLetters } from '@/Utils/GetData';
+import { getJpLetters } from '@/utils/GetData';
 import React, { useEffect, useState } from 'react'
 import Drawing from './Drawing';
-import DemoCard from './DemoCard';
-import AccuracyPage from './AccuracyPage';
-// import { dataFromLocal } from '@/Utils/data';
+// import DemoCard from './DemoCard';
+
+// import { dataFromLocal } from '@/utils/data';
 
 function Card() {
   const [jpLettersAll, setJpLettersAll] = useState()
@@ -20,7 +20,9 @@ function Card() {
   useEffect(() => {
     getjpDatafunc()
   }, [])
+  
   // console.log('=>>>>>>>>>>>>>', jpLettersAll);
+
 
 
   // // for now we'll just get data form local
@@ -29,8 +31,7 @@ function Card() {
   //   setJpLettersAll(dataFromLocal);
   // }, [])
   
-
-  // console.log('=>>>>>>>>>>>>>', jpLettersAll);
+  // // console.log('=>>>>>now>>>>>>>>', jpLettersAll);
 
 
   return (

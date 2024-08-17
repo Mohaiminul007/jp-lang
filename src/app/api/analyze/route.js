@@ -6,7 +6,7 @@ import fs from 'fs/promises';
 import { extractLastFrameFromGif } from '../utils/extractLastFrameFromGif';
 import saveBase64Image from '../utils/saveBase64Image';
 import getDiff from '../utils/getDiff';
-import { limiter } from '../utils/rateLimit';
+// import { limiter } from '../utils/rateLimit';
 
 // export const IdealImagePath = "ideal.png";
 // const writingImagePath = "../utils/temp/writing.png";
@@ -52,6 +52,7 @@ export async function POST(req) {
 
     // Save drawing image from base64
     await saveBase64Image(writingImagePath, drawingBase64);
+    // console.log("got here bro>>>>");
 
     // Calculate the difference between images
     const diffWithoutBuffer = await getDiff(IdealImagePath, writingImagePath);

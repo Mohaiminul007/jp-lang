@@ -16,28 +16,32 @@ export const PixelComparison = ({diffImage,accuracy}) => {
 
                                     {accuracy && (
                                         <div>
-                                        <p className='font-bold mt-5 text-3xl w-5/6 '>
-                                            Accuracy : <span className='text-green-500 px-2'>
+                                        <p className='font-bold mt-5 text-xl md:text-2xl lg:text-3xl  '>
+
+                                           <span className='mr-2 md:m-4'>
+                                           Accuracy :
+                                            </span>                                            
+                                            <span className='text-green-500'>
                                                 {
-                                                    parseFloat(accuracy).toFixed(2)  < 0.9 ? 0 :
-                                                    parseFloat(accuracy).toFixed(2)   < 1.3 ? parseFloat(accuracy).toFixed(2) * 10 :
-                                                        parseFloat(accuracy).toFixed(2)   < 2 ? parseFloat(accuracy).toFixed(2) * 10 :
-                                                            parseFloat(accuracy).toFixed(2)   < 3 ? parseFloat(accuracy).toFixed(2) * 9 :
-                                                                parseFloat(accuracy).toFixed(2)   < 5 ? parseFloat(accuracy).toFixed(2) * 8 :
-                                                                    parseFloat(accuracy).toFixed(2)  < 7 ? parseFloat(accuracy).toFixed(2) * 8 :
-                                                                        parseFloat(accuracy).toFixed(2)  < 9 ? parseFloat(accuracy).toFixed(2) * 6 :
-                                                                            parseFloat(accuracy).toFixed(2)  < 12 ? parseFloat(accuracy).toFixed(2) * 5 :
-                                                                                parseFloat(accuracy).toFixed(2)  < 15 ? parseFloat(accuracy).toFixed(2) * 4 :
-                                                                                    parseFloat(accuracy).toFixed(2)  < 20 ? parseFloat(accuracy).toFixed(2) * 4 :
-                                                                                        parseFloat(accuracy).toFixed(2)  < 50 ? parseFloat(accuracy).toFixed(2) * 1.5 :
-                                                                                            parseFloat(accuracy).toFixed(2)  < 76 ? parseFloat(accuracy).toFixed(2) * 1 :
-                                                                                                parseFloat(accuracy).toFixed(2)
+                                                    parseInt(accuracy)  < 0.9 ? 0 :
+                                                    parseInt(accuracy)   < 1.3 ? parseInt(accuracy) * 10 :
+                                                        parseInt(accuracy)   < 2 ? parseInt(accuracy) * 10 :
+                                                            parseInt(accuracy)   < 3 ? parseInt(accuracy) * 9 :
+                                                                parseInt(accuracy)   < 5 ? parseInt(accuracy) * 8 :
+                                                                    parseInt(accuracy)  < 7 ? parseInt(accuracy) * 8 :
+                                                                        parseInt(accuracy)  < 9 ? parseInt(accuracy) * 6 :
+                                                                            parseInt(accuracy)  < 12 ? parseInt(accuracy) * 5 :
+                                                                                parseInt(accuracy)  < 15 ? parseInt(accuracy) * 4 :
+                                                                                    parseInt(accuracy)  < 20 ? parseInt(accuracy) * 4 :
+                                                                                        parseInt(accuracy)  < 50 ? parseInt(accuracy) * 1.5 :
+                                                                                            parseInt(accuracy)  < 76 ? parseInt(accuracy) * 1 :
+                                                                                                parseInt(accuracy)
 
                                                 } % </span>
 
                                         </p>
 
-                                        <p className='my-4 text-lg'>
+                                        <p className='my-4  md:text-lg'>
                                             <sup>***</sup> We use <span className='font-bold'> pixel-to-pixel </span>
                                             comparison for accuracy.
                                         </p>

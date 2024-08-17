@@ -90,20 +90,20 @@ const Drawing = ({ item, key }) => {
 
       // console.log(item);
 
-      // //test api
-      // try {
-      //   const response = await axios.get('/api/hello');
-      //   console.log("success on GET got it",response.data);
+      //test api
+      try {
+        const response = await axios.get('/api/hello');
+        console.log("success on GET got it",response.data);
         
-      // } catch (error) {
-      //   console.log("error on GET request");
+      } catch (error) {
+        console.log("error on GET request");
         
-      // }
+      }
 
       // sending to backend
       try {
         // const response = await axios.post(`${process.env.NEXT_PUBLIC_API_URL}/analyze`, { data: dataToBackend }, {
-        const response = await axios.post(`/api/analyze`, { data: dataToBackend }, {
+        const response = await axios.post('/api/analyze', { data: dataToBackend }, {
           headers: {
             'Content-Type': 'application/json'
           },
@@ -111,7 +111,7 @@ const Drawing = ({ item, key }) => {
 
         // console.log("response ==>>> ",response.data.dataFromBackend.diffData.diffImageInBase64); 
         //no matter what we name the variable in the back it's always response.data
-        // console.log("response ==>>> ", response.data.dataFromBackend);
+        console.log("response ==>>> ", response.data.dataFromBackend);
         // console.log(response.data.dataFromBackend.diffData.diffImageInbase64)
         // console.log("this diff image",diffImage);
         

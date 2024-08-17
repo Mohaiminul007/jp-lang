@@ -3,6 +3,21 @@
 @tailwind utilities;
 
 
+.footText{
+  @apply  hover:text-blue-600 duration-100 p-1 m-2 text-sm
+}
+
+
+.stroke-text {
+  -webkit-text-stroke: 0.5px rgba(255, 255, 255, 0.397); /* 2px stroke width and black color */
+}
+
+
+
+body,html{
+    cursor: url('/pointer.png'), auto;
+}
+
 /* audio {
   width: 115px;
   height: 25px;
