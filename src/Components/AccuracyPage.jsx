@@ -13,13 +13,12 @@ const override = {
 
 const AccuracyPage = ({ dataForAccuPage, onClose }) => {
 
-    const [data, setData] = useState()
-
-
+    console.log("DAta ==>> ",dataForAccuPage);
+    
     let [loading, setLoading] = useState(true);
-    // let [color, setColor] = useState("#ffffff");
 
 
+  
     const [accuracy, setAccuracy] = useState()
     const [diffImage, setDiffImage] = useState()
     const [drawingImage, setDrawingImage] = useState()
@@ -29,19 +28,17 @@ const AccuracyPage = ({ dataForAccuPage, onClose }) => {
 
     useEffect(() => {
         if (dataForAccuPage) {
+            // if(!accuracy){setLoading(true)}
             setLoading(true)
             setIdealImage(dataForAccuPage.idealInBase64)
             setDrawingImage(dataForAccuPage.drawingBase64)
-            // response.data.dataFromBackend.diffData.diffImageInBase64
             // setDiffImage(dataForAccuPage.diffData.diffImageInbase64) //it's just B and b in base!!
             setDiffImage(dataForAccuPage.diffData.diffImageInBase64)
             // console.log("Data in accupage===> ",dataForAccuPage.diffData.diffImageInBase64);
             
             setAccuracy(dataForAccuPage.diffData.diffWithoutBuffer.misMatchPercentage)
-            // setIsModalOpen(true) // Open modal when new data is received
-
             setLoading(false)
-        }
+        } 
     }, [dataForAccuPage])
 
 
@@ -75,10 +72,10 @@ const AccuracyPage = ({ dataForAccuPage, onClose }) => {
                             color='#f6e035'
                             loading={loading}
                             cssOverride={override}
-                            size={150}
+                            size={120}
                             aria-label="Loading Spinner"
                             data-testid="loader"
-                            className='bg-red-600 rounded-full'
+                            className='bg-red-600 rounded-full '
                         />
                     </div>) : (<div>
 

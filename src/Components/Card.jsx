@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react'
 import Drawing from './Drawing';
 import DemoCard from './DemoCard';
 import AccuracyPage from './AccuracyPage';
-import { dataFromLocal } from '@/Utils/data';
+// import { dataFromLocal } from '@/Utils/data';
 
 function Card() {
   const [jpLettersAll, setJpLettersAll] = useState()
@@ -46,13 +46,13 @@ function Card() {
 
         {
 
-          jpLettersAll && jpLettersAll.slice(0,8).map((item, index) => (
+          jpLettersAll && jpLettersAll.slice(0,20).map((item, index) => (
             <div className=''>
               
               <div className=" flex flex-col items-center 
             md:grid md:grid-cols-3 gap-y-4 
             border-2 border-blue-400 
-            m-2 p-2 rounded-md pl-5 bg-[#112442]">
+            m-2 p-2 rounded-md md:pl-5 bg-[#112442]">
                 <div>
                   <span className='text-xl font-bold border-r-[2px] border-b-[2px]  border-blue-400  p-2'> {item.serialNo} </span>
                   <div className='flex items-center justify-center m-5 md:m-0'>

@@ -19,8 +19,8 @@ export const PixelComparison = ({diffImage,accuracy}) => {
                                         <p className='font-bold mt-5 text-3xl w-5/6 '>
                                             Accuracy : <span className='text-green-500 px-2'>
                                                 {
-                                                    parseFloat(accuracy).toFixed(2)  < 0.5 ? 0 :
-                                                    parseFloat(accuracy).toFixed(2)   < 0.9 ? parseFloat(accuracy).toFixed(2) * 10 :
+                                                    parseFloat(accuracy).toFixed(2)  < 0.9 ? 0 :
+                                                    parseFloat(accuracy).toFixed(2)   < 1.3 ? parseFloat(accuracy).toFixed(2) * 10 :
                                                         parseFloat(accuracy).toFixed(2)   < 2 ? parseFloat(accuracy).toFixed(2) * 10 :
                                                             parseFloat(accuracy).toFixed(2)   < 3 ? parseFloat(accuracy).toFixed(2) * 9 :
                                                                 parseFloat(accuracy).toFixed(2)   < 5 ? parseFloat(accuracy).toFixed(2) * 8 :

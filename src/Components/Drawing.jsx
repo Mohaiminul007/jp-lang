@@ -36,20 +36,10 @@ const Drawing = ({ item, key }) => {
   const [initialBlankCanvas, setInitialBlankCanvas] = useState(null);
 
   const [strokeColor, setStrokeColor] = useState("#375fd9");
-  // const [eraser, setEraser] = useState(false);
-
-
-  // const [feedback, setFeedback] = useState()
-  
-
 
   const [dataForAccuPage, setdataForAccuPage] = useState()
 
-
-  // for MUI
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-
 
   useEffect(() => {
     // Capture the initial blank canvas data
@@ -68,9 +58,7 @@ const Drawing = ({ item, key }) => {
   };
 
 
-
   const handleCheckAccuracy = async () => {
-    // open the modal
 
     if (canvasRef.current) {
       if (await isCanvasBlank()) {
@@ -88,20 +76,12 @@ const Drawing = ({ item, key }) => {
         // alert("canvas is blank")
         return 
       }
- //for my modal
-      // setdataForAccuPage(null)
+
       setIsModalOpen(true)
       
 
-
-
-
       const imageToExportBase64 = await canvasRef.current.exportImage("png");
-      const svgToExportBase64 = await canvasRef.current.exportSvg();
 
-      // console.log("iiimage >>", imageToExportBase64);
-
-      // setDrawingImage(imageToExportBase64)
 
       const dataToBackend = {
         item,
@@ -129,33 +109,20 @@ const Drawing = ({ item, key }) => {
           },
         })
 
-        
         // console.log("response ==>>> ",response.data.dataFromBackend.diffData.diffImageInBase64); 
         //no matter what we name the variable in the back it's always response.data
         // console.log("response ==>>> ", response.data.dataFromBackend);
         // console.log(response.data.dataFromBackend.diffData.diffImageInbase64)
         // console.log("this diff image",diffImage);
         
-        setdataForAccuPage(response.data.dataFromBackend)
-        
-
-
+        setdataForAccuPage(response.data.dataFromBackend)   
      
-
-      } catch (error) {
+     } catch (error) {
         console.error("Error occured", error)
       }
-
-
     }
   }
 
-  // const handleEraserClick = () => {
-  //   setEraser(true);
-  //   if (canvasRef.current) {
-  //     canvasRef.current.eraseMode(true);
-  //   }
-  // };
 
   const handlePencilClick = () => {
     // setEraser(false);
@@ -170,20 +137,9 @@ const Drawing = ({ item, key }) => {
     }
   };
 
-
-
-  // const pencilSelected = !eraser
-  //   ? " bg-blue-600 text-blue-50 hover:bg-blue-600 hover:text-blue-50 "
-  //   : defaultIconButton;
-
-  // const eraserSelected = eraser
-  //   ? " bg-blue-600 text-blue-50 hover:bg-blue-700 hover:text-blue-50 "
-  //   : defaultIconButton;
-
-  const onColorChange = (event) => {
+ const onColorChange = (event) => {
     setStrokeColor(event.target.value);
   };
-
 
   return (
     <div className='mt-0'>
@@ -191,7 +147,6 @@ const Drawing = ({ item, key }) => {
 
       <Toaster position="top-center" reverseOrder={false} />
       <div className="flex gap-x-1 md:gap-x-2 items-center justify-center ">
-        {/* <p className='pr-2'>Draw here: </p> */}
         <div className='border p-[2px] rounded-full'>
         <div className="w-9 h-9 rounded-full  overflow-hidden">
           <input
@@ -199,12 +154,12 @@ const Drawing = ({ item, key }) => {
             value={strokeColor}
             onChange={onColorChange}
             className='w-[150%] h-[150%] bg-transparent border-none cursor-pointer appearance-none  -translate-x-1/4 -translate-y-1/4 border-r-2 border-white'
-            // className=''
           />
 </div>
 
         </div>
         <hr />
+
         <button
           title="Pencil"
           className={`${iconButton} bg-blue-600 text-blue-50 hover:bg-blue-600 hover:text-blue-50`}
@@ -215,7 +170,6 @@ const Drawing = ({ item, key }) => {
         >
           <IconPencil size='18' />
         </button>
-
 
         {/* undo  button */}
         <button
@@ -229,12 +183,9 @@ const Drawing = ({ item, key }) => {
             }
           }}
         >
-          {/* <IconRestore size='18'/> */}
+
           <IconArrowBackUp size='20' />
         </button>
-
-
-
 
         {/* redo  button */}
         <button
@@ -252,7 +203,6 @@ const Drawing = ({ item, key }) => {
           <IconArrowForwardUp size='20' />
         </button>
 
-
         {/* reset button */}
         <button
           title=""
@@ -265,39 +215,25 @@ const Drawing = ({ item, key }) => {
           reset
         </button>
 
-
         <button
           title="Click to Check your accuracy"
-          className={`${iconButton} ${defaultIconButton}`}
+          className={`${iconButton} ${defaultIconButton} text-xs p-[7px]`}
           type="button"
           aria-label="clear"
           onClick={handleCheckAccuracy}
         //this will open a new window
-        // onClick={() => document.getElementById('my_modal_4').showModal()}
         >
           Check Accuracy
         </button>
 
-          {/* <AccuMUI 
-           dataForAccuPage={dataForAccuPage} 
-           isModalOpen={isModalOpen} 
-          //  closeModal={closeModal} 
-          /> */}
-
           {isModalOpen && (
-                // <Modal onClose={closeModal} />
                 <AccuracyPage 
                 onClose={() => setIsModalOpen(false)} 
                 dataForAccuPage={dataForAccuPage} 
                 />
             )}
 
-        {/* accuracy page */}
-        
-
-
       </div>
-
 
       <div className=' rounded-md mt-4 md:mt-2   md:flex md:justify-center'>
         <ReactSketchCanvas
