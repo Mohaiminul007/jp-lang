@@ -27,6 +27,31 @@ audio::-webkit-media-controls-time-remaining-display {
 }
 
 
+
+/* scrollbar */
+
+
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #0000;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
 /* audio::-webkit-media-controls-volume-slider, video::-webkit-media-controls-volume-slider {
   display: block;
   background-color: black;

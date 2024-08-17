@@ -1,8 +1,9 @@
-import { Inter } from "next/font/google";
+import { Inter, Orbitron } from "next/font/google";
 import "./globals.css";
 import Nav from "@/Components/Nav";
 
-const inter = Inter({ subsets: ["latin"] });
+// const inter = Inter({ subsets: ["latin"] });
+const orbitron = Orbitron({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Create Next App",
@@ -13,7 +14,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
      
-      <body className={inter.className}><Nav/>{children}</body>
+      {/* <body className={`${inter.className} bg-[#1c3c6f] text-white`}  > */}
+      <body className={`${orbitron.className} bg-[#1c3c6f] text-white`}  >
+      <Nav/>
+      {children}
+      </body>
     </html>
   );
 }
