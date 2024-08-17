@@ -1,17 +1,34 @@
-import Image from "next/image";
-import Card from "../Components/Card";
-import Link from "next/link";
-import Nav from "@/Components/Nav";
+import Hero from "@/Components/Hero";
+import Grids from "@/Components/Grids";
+import MagicBtn from "@/Components/ui/MagicBtn";
+import { FloatingMenu } from "@/Components/FlotingMenu";
+
+
 
 export default function Home() {
   return (
     <div className=" ">
-        
 
-      <div className="m-5 text-4xl font-bold">
-        
-      Welcome to our japanese language home page
+      
+      
+
+
+      <Hero/>
+
+      <FloatingMenu />
+
+      <Grids/>
+      <div className="my-10">
+        <a className="text-center " href="/hiragana">
+      {/* <MagicBtn 
+      title='Explore'
+      /> */}
+      </a>
       </div>
+      
+      
+
+      
     </div>
   );
 }

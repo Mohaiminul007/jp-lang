@@ -4,7 +4,7 @@ import React from 'react'
 const hiragana = () => {
   return (
     <div>
-      <h2 className="text-5xl mb-2 text-center ">Hiragana</h2>
+      <h2 className="text-5xl mb-5 text-left  mt-2 ml-8">Hiragana</h2>
       <hr className="border-[1px] border-slate-800" />
 
 

@@ -1,4 +1,4 @@
-export const dataFromLocal =  [
+export const dataFromLocal = [
     {
         "serialNo": 1,
         "jpSingleLetterHiragana": "あ",

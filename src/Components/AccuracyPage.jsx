@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import React, { useEffect, useRef, useState } from 'react';
 import { RxCross1 } from "react-icons/rx";
-import { ClipLoader, PacmanLoader } from 'react-spinners';
+import { PacmanLoader } from 'react-spinners';
 import { PixelComparison } from './pixelComparison';
 
 
@@ -12,8 +12,11 @@ const override = {
 };
 
 const AccuracyPage = ({ dataForAccuPage, onClose }) => {
+
+    // console.log("DAta ==>> ",dataForAccuPage);
+
     let [loading, setLoading] = useState(true);
-    let [color, setColor] = useState("#ffffff");
+
 
 
     const [accuracy, setAccuracy] = useState()
@@ -25,13 +28,15 @@ const AccuracyPage = ({ dataForAccuPage, onClose }) => {
 
     useEffect(() => {
         if (dataForAccuPage) {
+            // if(!accuracy){setLoading(true)}
             setLoading(true)
             setIdealImage(dataForAccuPage.idealInBase64)
             setDrawingImage(dataForAccuPage.drawingBase64)
-            setDiffImage(dataForAccuPage.diffData.diffImageInbase64)
-            setAccuracy(dataForAccuPage.diffData.diffWithoutBuffer.misMatchPercentage)
-            // setIsModalOpen(true) // Open modal when new data is received
+            // setDiffImage(dataForAccuPage.diffData.diffImageInbase64) //it's just B and b in base!!
+            setDiffImage(dataForAccuPage.diffData.diffImageInBase64)
+            // console.log("Data in accupage===> ",dataForAccuPage.diffData.diffImageInBase64);
 
+            setAccuracy(dataForAccuPage.diffData.diffWithoutBuffer.misMatchPercentage)
             setLoading(false)
         }
     }, [dataForAccuPage])
@@ -58,7 +63,7 @@ const AccuracyPage = ({ dataForAccuPage, onClose }) => {
 
 
             {/* main div */}
-            <div className="bg-[#142f5a] p-4 rounded-xl shadow-lg h-5/6 w-[80%] overflow-y-scroll">
+            <div className="bg-[#142f5a] p-4 mt-6 rounded-xl shadow-lg h-5/6 w-[80%] overflow-y-scroll">
 
                 {loading ? (
                     <div className="sweet-loading flex justify-center items-center h-full">
@@ -67,10 +72,10 @@ const AccuracyPage = ({ dataForAccuPage, onClose }) => {
                             color='#f6e035'
                             loading={loading}
                             cssOverride={override}
-                            size={150}
+                            size={120}
                             aria-label="Loading Spinner"
                             data-testid="loader"
-                            className='bg-red-600 rounded-full'
+                            className='bg-red-600 rounded-full '
                         />
                     </div>) : (<div>
 
@@ -90,7 +95,7 @@ const AccuracyPage = ({ dataForAccuPage, onClose }) => {
                             </div>
                         </div> */}
 
- 
+
 
                         <div>
                             <div className='flex justify-between'>
@@ -107,9 +112,20 @@ const AccuracyPage = ({ dataForAccuPage, onClose }) => {
                                     </div>
                                 </div>
                             </div>
-
+                            {/* {console.log("Diffimage===> ",diffImage,"\n Ideadimage==>",idealImage)} */}
                             <div className='grid grid-cols-1 md:grid-cols-2'>
-                                <div className="py-4 sm:px-12 md:px-12">
+                                {/* Difference Output */}
+                                <div className='md:ml-10'>
+
+                                    <PixelComparison
+                                        diffImage={diffImage}
+                                        accuracy={accuracy}
+                                    />
+                                </div>
+
+
+
+                                <div className="">
                                     <div className='mb-4'>
                                         <h1 className='text-xl font-bold mb-2 text-center'>Reference Image :</h1>
                                         <Image
@@ -133,38 +149,36 @@ const AccuracyPage = ({ dataForAccuPage, onClose }) => {
                                     </div>
                                 </div>
 
-                                {/* Difference Output */}
 
-                                    <PixelComparison
-                                    diffImage={diffImage}
-                                    accuracy={accuracy}
-                                    />
-                                
+
                             </div>
 
-                            <p className='my-4 text-lg'>
-                                
-                                
+                            <p className='my-4 text-balance  md:text-lg'>
 
-                                <span className='text-xl font-bold'>Remember,</span>  <br /> 
+
+
+                                <span className='text-xl font-bold'>Remember,</span>  <br />
+                                <span className='text-white/60'>
+
                                 A lower accuracy score doesn&apos;t mean you can&apos;t improve. Each attempt brings you closer to mastering the ideal image shape. Keep practicing, and with each try, you&apos;ll get closer to perfection.
+                                </span>
                                 <br />
-                                <p className='font-bold text-xl mt-2 md:mt-6'>Don&apos;t quit. Practice makes perfect!</p>
+                                <p className='font-bold text-xl mt-4 md:mt-6'>Don&apos;t quit. Practice makes perfect!</p>
 
                             </p>
                             <hr />
 
                             <div className='flex justify-center'>
-                                    <div>
-                                        <button
-                                            onClick={onClose}
-                                            className="p-2 m-4 md:px-3 md:py-3 bg-transparent text-white border-[1px] border-blue-400 hover:bg-blue-400/40 rounded-full mx-auto"
-                                        >
-                                            {/* Close */}
-                                            <RxCross1 />
-                                        </button>
-                                    </div>
+                                <div>
+                                    <button
+                                        onClick={onClose}
+                                        className="p-2 m-4 md:px-3 md:py-3 bg-transparent text-white border-[1px] border-blue-400 hover:bg-blue-400/40 rounded-full mx-auto"
+                                    >
+                                        {/* Close */}
+                                        <RxCross1 />
+                                    </button>
                                 </div>
+                            </div>
 
                         </div>
                     </div>
