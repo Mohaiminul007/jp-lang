@@ -1,8 +1,9 @@
 "use client"
-import { getJpLetters } from '../utils/GetData';
+
 
 import React, { useEffect, useState } from 'react'
 import Drawing from './Drawing';
+import { getJpLetters } from '@/utils/GetData';
 // import DemoCard from './DemoCard';
 
 // import { dataFromLocal } from '@/utils/data';
