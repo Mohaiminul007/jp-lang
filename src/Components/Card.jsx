@@ -1,5 +1,6 @@
 "use client"
-import { getJpLetters } from '@/utils/GetData';
+import { getJpLetters } from '../utils/GetData';
+
 import React, { useEffect, useState } from 'react'
 import Drawing from './Drawing';
 // import DemoCard from './DemoCard';
@@ -20,7 +21,7 @@ function Card() {
   useEffect(() => {
     getjpDatafunc()
   }, [])
-  
+
   // console.log('=>>>>>>>>>>>>>', jpLettersAll);
 
 
