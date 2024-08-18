@@ -2,6 +2,9 @@
 const nextConfig = {
     reactStrictMode: true,
     experimental: {
+        outputFileTracingExcludes: {
+            '/node_modules/canvas': true,
+        },
     outputFileTracingIgnores: ['canvas'],
     },
 };
