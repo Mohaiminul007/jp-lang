@@ -15,7 +15,7 @@
     "@mui/material": "^5.16.6",
     "@tabler/icons-react": "^3.11.0",
     "axios": "^1.7.3",
-    "canvas": "^2.11.2",
+  
     "clsx": "^2.1.1",
     "cors": "^2.8.5",
     "express-rate-limit": "^7.4.0",
