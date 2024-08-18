@@ -1,9 +1,9 @@
-import { Inter, Orbitron } from "next/font/google";
+import { Orbitron } from "next/font/google";
 import "./globals.css";
 import Footer from "@/Components/Footer";
 import { FloatingNav } from "@/Components/FloatingNav";
 
-// const inter = Inter({ subsets: ["latin"] });
+
 const orbitron = Orbitron({ subsets: ["latin"] });
 
 export const metadata = {
